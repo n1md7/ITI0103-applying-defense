@@ -11,7 +11,7 @@ sed -i -e 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 systemctl restart apache2
 a=`ifconfig | grep -o "192.168.8.254"`
 
-if [ a != "" ]; then
+if [ "$a" != "" ]; then
 #this is machine for check
     #this opens in users machine
     echo "Please visit 192.168.8.254" >> /var/www/html/index.html
