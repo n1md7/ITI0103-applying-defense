@@ -40,4 +40,5 @@ else
 	rm -f /var/www/html/setupdb.php
 	rm -f /var/www/html/index.html
 	rm -f /var/www/html/README.md
+	chmod 766 /var/www/html/*
 fi
