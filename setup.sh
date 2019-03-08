@@ -13,12 +13,12 @@ cp /var/www/html/index.html /var/www/index.html
 #cut and move all webserver files to web root directory
 rm -rf /var/www/html/*
 mv /var/www/index.html /var/www/html/index.html
-cp -r /root/setup/ITI0103-level-applying-defense/webserver/* /var/www/html/
+cp -r /root/setup/ITI0103-applying-defense/webserver/* /var/www/html/
 rm -f /var/www/html/setup.sh
 #including hidden files
-cp -r /root/setup/ITI0103-level-applying-defense/webserver/.* /var/www/html/
+cp -r /root/setup/ITI0103-applying-defense/webserver/.* /var/www/html/
 #remove it
-rm -rf /root/setup/ITI0103-level-applying-defense/
+rm -rf /root/setup/ITI0103-applying-defense/
 
 php /var/www/html/setupdb.php >> /dev/null
 #remove loading spinner
