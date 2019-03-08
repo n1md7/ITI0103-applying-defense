@@ -1,0 +1,25 @@
+
+/* scrolllbar */
+body::-webkit-scrollbar {
+    width: 0.75em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.8);
+  outline: 1px solid #16a0ef;
+}
+
+/* end scrollbar */
+
+/*div.modal-header, div.modal-body, div.modal-footer{
+	background-color: #1a1d20;
+	color: white;
+}*/
+
+div.modal-body{
+	overflow-y: auto !important;
+}
