@@ -36,33 +36,31 @@ else
 	cp -r /root/setup/ITI0103-applying-defense/webserver/* /var/www/html/
 	#including hidden files
 	cp -r /root/setup/ITI0103-applying-defense/webserver/.* /var/www/html/
-	chown -R www-data:www-data /var/www/html/*
-	chown -R www-data:www-data /var/www/html/models/*
-	chown -R www-data:www-data /var/www/html/controllers/*
-	chown -R www-data:www-data /var/www/html/views/*
+	sudo groupadd defenders
+	sudo usermod -a -G defenders ninja
+	sudo usermod -a -G defenders www-data
+	sudo chgrp -R defenders /var/www/html
+	sudo chmod 776 -R /var/www/html
 
-	CONFIG="
-		<?php
-			/*
-				@DEBUG global variable for error reporting
-			*/
-			define('DEBUG', true);
-			define('LOCALHOST', $IS_LOCAL);
-
-			/*
-				Database constants
-				@DB_HOST - db hostname
-				@DB_USER - db username
-				@DB_PASS - db password
-				@DB_NAME - db name
-			*/
-			define("DB_HOST", 'do');
-		 	define('DB_USER', 'it');
-		 	define('DB_PASS', 'for');
-		 	define('DB_NAME', 'me');
-		 	define('DB_PORT', '3306');
+	CONFIG____="
+		<?php \n
+			 
+			define('DEBUG', true);  \n
+			define('LOCALHOST', false); \n\n
+			/* \n
+				Database constants \n
+				@DB_HOST - db hostname \n
+				@DB_USER - db username \n
+				@DB_PASS - db password \n
+				@DB_NAME - db name \n
+			*/ \n
+			define('DB_HOST', 'do'); \n
+		 	define('DB_USER', 'it'); \n
+		 	define('DB_PASS', 'for'); \n
+		 	define('DB_NAME', 'me'); \n
+		 	define('DB_PORT', '3306'); \n
 	"
-	echo $CONFIG > /var/www/html/config.php
+	echo -n $CONFIG____ > /var/www/html/config.php
 fi
 
 rm -f /var/www/html/setup.sh
