@@ -15,21 +15,27 @@ $DB_USER = 'student_root';
 $DB_PASS = 'MICRosoFT_Sucks_for_real';
 $DB_HOST = '138.68.96.132';
 $DB_PORT = '3306';
-
+$DB_NAME_ROOT = 'bloom_assessment';
 $username = trim(file_get_contents($LOCAL?'../username.txt':'/var/www/username.txt'));
 
 $DB_NAME = "{$username}_level_apply_defense";
 $DB_USER_NAME = "{$username}_user_apply_defense";
-$DB_USER_PASS = Generate::csha1("$DB_USER_NAME");
+$DB_USER_PASS = Generate::csha1("{$DB_USER_NAME}defense");
 
 $USER_PASS = Generate::sha512($DB_PASS.$DB_NAME.'apply_defense');
 
 if($LOCAL){
-	file_put_contents('../flag.txt', $USER_PASS);
+	file_put_contents('../db_user_name.txt', $DB_USER_NAME);
 	file_put_contents('../db_user_pass.txt', $DB_USER_PASS);
+	file_put_contents('../db_user_host.txt', $DB_HOST);
+	file_put_contents('../db_user_port.txt', $DB_PORT);
+	file_put_contents('../db_name.txt', 	 $DB_NAME);
 }else{
-	file_put_contents('/var/www/flag.txt', $USER_PASS);
+	file_put_contents('/var/www/db_user_name.txt', $DB_USER_NAME);
 	file_put_contents('/var/www/db_user_pass.txt', $DB_USER_PASS);
+	file_put_contents('/var/www/db_user_host.txt', $DB_HOST);
+	file_put_contents('/var/www/db_user_port.txt', $DB_PORT);
+	file_put_contents('/var/www/db_name.txt', 	   $DB_NAME);
 }
 
 $IS_LOCAL = $LOCAL?"true":"false";
@@ -50,9 +56,9 @@ $CONFIG = <<<CONF
 		@DB_NAME - db name
 	*/
 	define("DB_HOST", "$DB_HOST");
- 	define('DB_USER', '$DB_USER_NAME');
- 	define('DB_PASS', '$DB_USER_PASS');
- 	define('DB_NAME', '$DB_NAME');
+ 	define('DB_USER', '$DB_USER');
+ 	define('DB_PASS', '$DB_PASS');
+ 	define('DB_NAME', '$DB_NAME_ROOT');
  	define('DB_PORT', '$DB_PORT');
 CONF;
 if($LOCAL){
