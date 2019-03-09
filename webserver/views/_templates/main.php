@@ -18,7 +18,7 @@
   <!-- nav start -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand text-danger" style="font-weight: bold;" href="<?php echo USER_INDEX; ?>">
-      DO<i class="fa fa-database"></i> <i class="fa fa-eyedropper"> </i><?php echo substr($_SESSION['user'],0, 8);?></a>
+      DO<i class="fa fa-database"></i> <i class="fa fa-eyedropper"> </i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
