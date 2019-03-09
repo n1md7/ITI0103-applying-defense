@@ -44,7 +44,7 @@ else
 <?php
 define('DEBUG', true); 
 define('LOCALHOST', false); 
-define('DB_HOST', 'do');
+define('DB_HOST', '127.0.0.1');
 define('DB_USER', 'it');
 define('DB_PASS', 'for');
 define('DB_NAME', 'me');
