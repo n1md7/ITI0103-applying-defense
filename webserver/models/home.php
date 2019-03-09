@@ -8,26 +8,19 @@ class HomeModel extends Model{
 
         header('Content-type: application/json');
 
-        // $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $post = $_POST;
 
-        if( !isset($post['action'])){
-                Encode::json([
-                            'status' => 'error',
-                            'msg' => ':)'
-                        ]);
+        if( !isset($post['action']) ){
+            Encode::json([
+                        'status' => 'error',
+                        'msg' => ':)',
+                    ]);
         }
-
-        if( $_SESSION['csrf'] !== $post['csrf'] ){
-                Encode::json([
-                    'status' => 'error',
-                    'msg' => 'CSRF Token is Invalid'
-                ]);
-        }
+ 
 
         switch ($post['action']) {
             case 'search':
-                if( !isset($post['search']) || empty($post['search'])){ 
+                if( !isDefined($post['search']) ){ 
                 	Encode::json([
                             'status' => 'error',
                             'msg' => 'Empty field detected'
@@ -42,14 +35,14 @@ class HomeModel extends Model{
                     'status' => 'success',
                     'data' => $this->resultSet()
                 ]);
-                break;
+            break;
 
             default:
                 Encode::json([
                     'status' => 'error',
                     'msg' => 'No data'
                 ]);
-                break;
+            break;
         }
     }
 }

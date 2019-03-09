@@ -1,5 +1,8 @@
 touch /var/www/username.txt
 dmidecode -s bios-release-date >> /var/www/username.txt
+#change . to _ in username
+sed -i -e 's/./_/g' /var/www/username.txt
+
 #create file to save user flag
 touch /var/www/flag.txt
 #setup htaccess to make work URL rewrite

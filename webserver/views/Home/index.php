@@ -14,7 +14,6 @@
                     Search keyword must contain only [ <kbd class="text-info" style="background: #ababab;">abcdefghijklmnopqrstuvwxyz</kbd> ] symbols
                 </small>
 
-                <input type="hidden" class="csrf" name="csrf" value="">
                 <input type="hidden" name="action" value="search">
             </form>
         </div>
@@ -24,8 +23,6 @@
 <script>
     $('.nav-item.home').addClass('active');
     $('#searchForm').submit(function(event){
-        $(this).find('input[name=csrf]').val($('meta[name=csrf]').attr('content'));
-
         $.ajax({
             beforeSend: function(){
                 $('.alert').alert('close');
@@ -37,7 +34,6 @@
             url: $('#searchForm').data('action'),
             success: function(data){
                 $('.spinner').hide();
-                $('meta[name=csrf]').attr('content', data.csrf);
                 if(typeof data.status !== "undefined" && data.status === 'success'){
                         let html = "";
                         data.data.forEach(function(ebook){

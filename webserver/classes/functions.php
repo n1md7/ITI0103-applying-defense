@@ -43,9 +43,8 @@ class Count{
 */
 class Encode{
 	public static function json($dt){
-		$arr = ['csrf' => Generate::csrf()];
 		exit(
-			json_encode(array_merge($arr, $dt))
+			json_encode($dt)
 		);
 	}	
 }
@@ -153,14 +152,11 @@ class Captcha
 class Restrict{
 
 	public static function isloggedin(){
-		return !isset($_SESSION["islogged_in"])?False:True;
+		return true;
 	}
 
 	public static function view(){
-		if(!Restrict::isloggedin()):
-			header('Location: '.USER_SIGN_IN);
-			exit(':)');
-		endif;
+		return;
 	}
 }
 

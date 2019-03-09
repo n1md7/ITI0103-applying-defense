@@ -64,19 +64,26 @@ class Curl{
 			$curl = curl_init();
 			// Set some options - we are passing in a useragent too here
 			curl_setopt_array($curl, array(
-			    CURLOPT_RETURNTRANSFER => 1,
+			    CURLOPT_RETURNTRANSFER => true,
+			    CURLOPT_HEADER => false,
+			    CURLOPT_NOBODY => false,
 			    CURLOPT_URL => $url,
-			    CURLOPT_USERAGENT => 'Codular Sample cURL Request',
-			    CURLOPT_POST => 1,
+			    CURLOPT_TIMEOUT => 10,
+			    CURLOPT_USERAGENT => 'This is me motherfucker!',
+			    CURLOPT_POST => true,
+			    CURLOPT_VERBOSE => false,
+			    // CURLOPT_HTTPHEADER, array('Accept: application/json'),
 			    CURLOPT_POSTFIELDS => $data
 			));
 			// Send the request & save response to $resp
 			$resp = curl_exec($curl);
+			// $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 			// Close request to clear up some resources
 			curl_close($curl);
 
+			return $resp;
+			
 		} catch (Exception $e) {}
-
 
 	}
 }

@@ -63,5 +63,97 @@ $target_IP = '192.168.8.253';
     </p>
     <p class="mt-1">If you think that you solved the problem then hit the <code>check</code> button</p>
     <hr class="mb-3">
-    <a class="btn btn-primary btn-lg" href="javascript:void(0)" role="button">check</a>
+    <div class="alert alert-success" role="alert" id="task-1-alert" style="display: none;">
+      <b>Success!</b> You did it!
+    </div>
+    <div class="alert alert-danger" role="alert" id="task-1-alert-wrong" style="display: none;">
+      <b>Wrong!</b> The bug is not fixed yet. Try again!
+    </div>
+    <button class="btn btn-primary btn-lg" id="task-1" >check</button>
 </div>
+
+<div class="jumbotron animated flipInX">
+    <h3 class="display-4">Task #2. Fix SQL injection</h3>
+    <hr class="mb-3">
+    <p class="mt-2">
+        Find out vulnerability hole and add proper parsing method.
+    </p>
+    <p class="mt-1">If you think that you solved the problem then hit the <code>check</code> button</p>
+    <hr class="mb-3">
+    <div class="alert alert-success" role="alert" id="task-2-alert" style="display: none;">
+      <b>Success!</b> You did it!
+    </div>
+    <div class="alert alert-danger" role="alert" id="task-2-alert-wrong" style="display: none;">
+      <b>Wrong!</b> The bug is not fixed yet. Try again!
+    </div>
+    <button class="btn btn-primary btn-lg" id="task-2" >check</button>
+</div>
+
+
+
+<script type="text/javascript">
+    $("#task-1").click(function(){
+        let self = this;
+        $.ajax({
+            beforeSend: function(){
+                $(self).html('Wait...');
+                $(self).attr('disabled', '');
+            },
+            method: 'post',
+            url: '<?php echo HOME_AJAX; ?>',
+            data: {
+                action: 'check',
+                task: '1',
+                csrf: ''
+            },
+            success: function(resp){
+                $('#task-1-alert, #task-1-alert-wrong').hide();
+                if(typeof resp.msg !== "undefined" && resp.msg === 'fixed'){
+                    $('#task-1-alert').show();
+                }else{
+                    $('#task-1-alert-wrong').show();
+                }
+            },
+            error:function(){
+                console.warn('No internet');
+            },
+            complete: function(){
+                $(self).html('Check');
+                $(self).removeAttr('disabled');
+            }
+        });
+    });
+
+    $("#task-2").click(function(){
+        let self = this;
+        $.ajax({
+            beforeSend: function(){
+                $(self).html('Wait...');
+                $(self).attr('disabled', '');
+            },
+            method: 'post',
+            url: '<?php echo HOME_AJAX; ?>',
+            data: {
+                action: 'check',
+                task: '2',
+                csrf: ''
+            },
+            success: function(resp){
+                $('#task-2-alert, #task-2-alert-wrong').hide();
+                if(typeof resp.msg !== "undefined" && resp.msg === 'fixed'){
+                    $('#task-2-alert').show();
+                }else{
+                    $('#task-2-alert-wrong').show();
+                }
+            },
+            error:function(){
+                console.warn('No internet');
+            },
+            complete: function(){
+                $(self).html('Check');
+                $(self).removeAttr('disabled');
+            }
+        });
+    });
+
+</script>

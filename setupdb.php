@@ -69,6 +69,7 @@ try {
 
 
 		INSERT INTO users (user, pass) VALUES ('admin', '$USER_PASS');
+		INSERT INTO users (user, pass) VALUES ('checker', 'HTB{11ed5c99d07c222fd418dd6f5064c90f5d0a90c92c221c11b03bdd0d0461d6ec4c018546cbc9d227eef015d9c6b5efb342112bac806e0ddd0604233cf9aaebb2}');
 
 		ALTER TABLE books
 		  ADD PRIMARY KEY (id);

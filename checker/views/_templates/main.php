@@ -27,9 +27,6 @@
         <li class="nav-item home">
           <a class="nav-link" href="<?php echo HOMEINDEX; ?>">Home <i class="fa fa-home"></i></a>
         </li>
-        <li>
-          <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#labInfoBtn">Lab info <i class="fa fa-info"></i></a>
-        </li>
       </ul>
 
       <span class="navbar-text">
@@ -43,7 +40,6 @@
     <div class="container-fluid" style="margin-top: 140px;">
       <?php Messages::display(); ?>
       <?php require($view); ?>
-      <?php require('./views/_templates/assessment.php'); ?>
       <!-- footer start -->
       <!-- footer end -->
       <?php require('./views/footer.html'); ?>
