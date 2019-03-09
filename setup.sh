@@ -40,7 +40,7 @@ else
 	sudo usermod -a -G defenders ninja
 	sudo usermod -a -G defenders www-data
 	sudo chgrp -R defenders /var/www/html
-	sudo chmod 776 -R /var/www/html
+	sudo chmod 777 -R /var/www/html
 
 	CONFIG____="
 		<?php \n
