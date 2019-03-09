@@ -1,17 +1,12 @@
 <?php
-if(file_exists('../../db_user_name.txt')){
-    $db_user_name = file_get_contents('../../db_user_name.txt');
-    $db_user_pass = file_get_contents('../../db_user_pass.txt');
-    $db_user_host = file_get_contents('../../db_user_host.txt');
-    $db_user_port = file_get_contents('../../db_user_port.txt');
-    $db_name_____ = file_get_contents('../../db_name.txt');
-}else{
-    $db_user_name = file_get_contents('/var/www/db_user_name.txt');
-    $db_user_pass = file_get_contents('/var/www/db_user_pass.txt');
-    $db_user_host = file_get_contents('/var/www/db_user_host.txt');
-    $db_user_port = file_get_contents('/var/www/db_user_port.txt');
-    $db_name_____ = file_get_contents('/var/www/db_name.txt');
-}
+
+
+    $db_user_name = S_DB_USER;
+    $db_user_pass = S_DB_PASS;
+    $db_user_host = S_DB_HOST;
+    $db_user_port = S_DB_PORT;
+    $db_name_____ = S_DB_NAME;
+
 
 $target_IP = '192.168.8.253';
 

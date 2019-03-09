@@ -2,8 +2,8 @@
 	/*
 		@DEBUG global variable for error reporting
 	*/
-	define('DEBUG', true);
-	define('LOCALHOST', true);
+	define('DEBUG', false);
+	define('LOCALHOST', false);
 
 	/*
 		Database constants

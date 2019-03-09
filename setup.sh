@@ -22,8 +22,6 @@ mv /var/www/index.html /var/www/html/index.html
 if [ "$a" != "" ]; then
 #this is machine for check
     #this opens in users machine
-    echo "Please visit 192.168.8.253" >> /var/www/html/index.html
-    echo "<br>I am going to check your work bitch" >> /var/www/html/index.html
 	cp -r /root/setup/ITI0103-applying-defense/checker/* /var/www/html/
 	#including hidden files
 	cp -r /root/setup/ITI0103-applying-defense/checker/.* /var/www/html/
@@ -43,23 +41,14 @@ else
 	sudo chmod 777 -R /var/www/html
 
 	CONFIG____="
-		<?php \n
-			 
-			define('DEBUG', true);  \n
-			define('LOCALHOST', false); \n\n
-			/* \n
-				Database constants \n
-				@DB_HOST - db hostname \n
-				@DB_USER - db username \n
-				@DB_PASS - db password \n
-				@DB_NAME - db name \n
-			*/ \n
-			define('DB_HOST', 'do'); \n
-		 	define('DB_USER', 'it'); \n
-		 	define('DB_PASS', 'for'); \n
-		 	define('DB_NAME', 'me'); \n
-		 	define('DB_PORT', '3306'); \n
-	"
+<?php
+define('DEBUG', true); 
+define('LOCALHOST', false); 
+define('DB_HOST', 'do');
+define('DB_USER', 'it');
+define('DB_PASS', 'for');
+define('DB_NAME', 'me');
+define('DB_PORT', '3306');"
 	echo -n $CONFIG____ > /var/www/html/config.php
 fi
 

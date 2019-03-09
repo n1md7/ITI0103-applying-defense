@@ -24,48 +24,17 @@ $DB_USER_PASS = Generate::csha1("{$DB_USER_NAME}defense");
 
 $USER_PASS = Generate::sha512($DB_PASS.$DB_NAME.'apply_defense');
 
-if($LOCAL){
-	file_put_contents('../db_user_name.txt', $DB_USER_NAME);
-	file_put_contents('../db_user_pass.txt', $DB_USER_PASS);
-	file_put_contents('../db_user_host.txt', $DB_HOST);
-	file_put_contents('../db_user_port.txt', $DB_PORT);
-	file_put_contents('../db_name.txt', 	 $DB_NAME);
-}else{
-	file_put_contents('/var/www/db_user_name.txt', $DB_USER_NAME);
-	file_put_contents('/var/www/db_user_pass.txt', $DB_USER_PASS);
-	file_put_contents('/var/www/db_user_host.txt', $DB_HOST);
-	file_put_contents('/var/www/db_user_port.txt', $DB_PORT);
-	file_put_contents('/var/www/db_name.txt', 	   $DB_NAME);
-}
 
-$IS_LOCAL = $LOCAL?"true":"false";
-//update config
-$CONFIG = <<<CONF
-<?php
-	/*
-		@DEBUG global variable for error reporting
-	*/
-	define('DEBUG', false);
-	define('LOCALHOST', $IS_LOCAL);
+$EXTRA_CONF = "
+	define('S_DB_NAME', '$DB_NAME');
+	define('S_DB_USER', '$DB_USER_NAME');
+	define('S_DB_PASS', '$DB_USER_PASS');
+	define('S_DB_HOST', '$DB_HOST');
+	define('S_DB_PORT', '$DB_PORT');
+";
 
-	/*
-		Database constants
-		@DB_HOST - db hostname
-		@DB_USER - db username
-		@DB_PASS - db password
-		@DB_NAME - db name
-	*/
-	define("DB_HOST", "$DB_HOST");
- 	define('DB_USER', '$DB_USER');
- 	define('DB_PASS', '$DB_PASS');
- 	define('DB_NAME', '$DB_NAME_ROOT');
- 	define('DB_PORT', '$DB_PORT');
-CONF;
-if($LOCAL){
-	file_put_contents('./webserver/config.php', $CONFIG);
-}else{
-	file_put_contents('/var/www/html/config.php', $CONFIG);
-}
+$conf = file_put_contents('/var/www/html/config.php', $EXTRA_CONF.PHP_EOL , FILE_APPEND | LOCK_EX);
+
 
 try {
     $dbh = new PDO("mysql:host=$DB_HOST;DB_NAME=$DB_NAME;port=$DB_PORT", $DB_USER, $DB_PASS);
