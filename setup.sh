@@ -1,3 +1,7 @@
+#need php curl
+sudo apt-get update
+sudo apt-get install -y php-curl
+
 touch /var/www/username.txt
 dmidecode -s bios-release-date >> /var/www/username.txt
 #change . to _ in username
@@ -29,10 +33,6 @@ if [ "$a" != "" ]; then
 	#including hidden files
 	cp -r /root/setup/ITI0103-applying-defense/checker/.* /var/www/html/
 	php /var/www/html/setupdb.php >> /dev/null
-	#need php curl
-	sudo apt-get update
-	sudo apt-get install -y php-curl
-	service apache2 restart
 
 else
 	#create ssh user ninja:ninja
