@@ -1,6 +1,6 @@
 #need php curl
-sudo apt-get update
-sudo apt-get install -y php-curl
+apt-get update
+apt-get install -y php-curl
 
 touch /var/www/username.txt
 dmidecode -s bios-release-date >> /var/www/username.txt
