@@ -32,7 +32,7 @@ $target_IP = '192.168.8.253';
         <br>
         Step #2. Lets install <em>sshfs</em> by running command [<code> sudo apt-get install sshfs </code>]. The password for current machine is <b>student</b>.<br>
         Then run [<code> mkdir working_dir; cd working_dir </code>]<br>
-        [ <code>sshf ninja@<span class="target-ip"><?php echo $target_IP; ?></span>:/var/www/html/ ./working_dir</code> ]
+        [ <code>sshfs ninja@<span class="target-ip"><?php echo $target_IP; ?></span>:/var/www/html/ ./working_dir</code> ]
         <br> when it asks for a password use <b>ninja</b>
         <br>
         <br>
