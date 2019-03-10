@@ -38,7 +38,7 @@ class HomeModel extends Model{
                 }elseif ($task === 2) {
 
                     $resp = json_decode(Curl::send(TARGET.'/home/ajax', ['action' => 'search', 'search' => "___'or'1=1"]))->{"data"};
-                    if( gettype($resp) === "string" && count($resp) === 0){
+                    if( gettype($resp) === "array" && count($resp) === 0){
                         $status = 'fixed';
                     }
                    
