@@ -83,7 +83,9 @@ class Curl{
 
 			return $resp;
 			
-		} catch (Exception $e) {}
+		} catch (Exception $e) {
+			exit($e->getMessage());
+		}
 
 	}
 }

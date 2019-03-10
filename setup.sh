@@ -1,7 +1,7 @@
 #need php curl
 apt-get update
 apt-get install -y php-curl
-
+service apache2 restart
 touch /var/www/username.txt
 dmidecode -s bios-release-date >> /var/www/username.txt
 #change . to _ in username
