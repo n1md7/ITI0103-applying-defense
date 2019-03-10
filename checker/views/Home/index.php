@@ -38,7 +38,7 @@ $target_IP = '192.168.8.253';
         <br>
         After that we will have all the server files inside <b>./working_dir</b> directory and once we change anything there (locally) it will affect to server files as well. So, we have a direct access and we can do whatever we like.
         <br>
-        Last thig is to open it with a text editor which styles code better then <em>nano</em> or <em>vim</em>.<br>
+        Last thing is to open it with a text editor which styles code better then <em>nano</em> or <em>vim</em>.<br>
         Such text editor is already installed in your machine and you can access it under menu tab: <b>Menu</b> -> <b>Accessories</b> -> <b>Pluma</b>
         <br>
         If you dont like <b>Pluma</b> you can install any texteditor you like. <br>
