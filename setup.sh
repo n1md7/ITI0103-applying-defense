@@ -32,6 +32,7 @@ if [ "$a" != "" ]; then
 	#need php curl
 	sudo apt-get update
 	sudo apt-get install -y php-curl
+	service apache2 restart
 
 else
 	#create ssh user ninja:ninja
