@@ -54,12 +54,12 @@ $target_IP = '192.168.8.253';
     <h3 class="display-4">Task #1. Setup a connetion to the Database</h3>
     <hr class="mb-3">
     <p class="mt-2">
-        The owner gaved you credentials. You need to find out configuration file and enter data on it. <br>
-        Database host: <b class="db-host"><?php echo $db_user_host; ?></b>, 
-        Database user: <b class="db-user"><?php echo $db_user_name; ?></b>, 
-        Database passowrd: <b class="db-pass"><?php echo $db_user_pass; ?></b>, 
-        Database name: <b class="db-name"><?php echo $db_name_____; ?></b>, 
-        Database port: <b class="db-port"><?php echo $db_user_port; ?></b>, 
+        The owner gave you credentials. You need to find out configuration file and enter data on it. <br>
+        Database host: <b class="db-host"><?php echo $db_user_host; ?></b>, <br>
+        Database user: <b class="db-user"><?php echo $db_user_name; ?></b>, <br>
+        Database password: <b class="db-pass"><?php echo $db_user_pass; ?></b>, <br>
+        Database name: <b class="db-name"><?php echo $db_name_____; ?></b>, <br>
+        Database port: <b class="db-port"><?php echo $db_user_port; ?></b>, <br>
     </p>
     <p class="mt-1">If you think that you solved the problem then hit the <code>check</code> button</p>
     <hr class="mb-3">
